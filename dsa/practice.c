@@ -154,7 +154,19 @@ Node *binarySearch(Node *head, int target)
     }
     return NULL;
 }
+Node *MS(Node *head)
+{
+    if (head == NULL || head->next == NULL)
+        return head;
+    Node *mid = middleofLL(head);
+    Node *left = head;
+    Node *right = mid->next;
+    mid->next = NULL;
 
+    left = MS(leaft);
+    right = MS(right);
+    return merge(left, right);
+}
 int main()
 {
     printf("Enter number of Nodes of LL\n");
